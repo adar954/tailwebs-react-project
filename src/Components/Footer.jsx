@@ -26,10 +26,10 @@ function Footer() {
           <h4>Resources</h4>
           <ul>
             {/* as of now adding / and use prevent default as using # throwing build error  */}
-            <li><a href="/" onClick={(e) => e.preventDefault()>Documentation</a></li>
-            <li><a href="/" onClick={(e) => e.preventDefault()>API Reference</a></li>
-            <li><a href="/" onClick={(e) => e.preventDefault()>Community</a></li>
-            <li><a href="/" onClick={(e) => e.preventDefault()>Blog</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()}>Documentation</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()}>API Reference</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()}>Community</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()}>Blog</a></li>
           </ul>
         </div>
 
