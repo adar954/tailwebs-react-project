@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - '**'
-  workflow_dispatch:   # manual trigger option
+  workflow_dispatch:   # optional manual trigger
 
 jobs:
   build:
@@ -57,6 +57,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}  # Use your Personal Access Token here
           publish_dir: ./build
-          force_orphan: true   # ensures overwrite, avoids 403/conflict
+          force_orphan: true   # overwrite old gh-pages branch to fix README issue
