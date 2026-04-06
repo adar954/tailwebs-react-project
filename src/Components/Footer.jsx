@@ -25,10 +25,11 @@ function Footer() {
         <div className="footer-links">
           <h4>Resources</h4>
           <ul>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">API Reference</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Blog</a></li>
+            <!-- as of now adding / and use prevent default as using # throwing build error -->
+            <li><a href="/" onClick={(e) => e.preventDefault()>Documentation</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()>API Reference</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()>Community</a></li>
+            <li><a href="/" onClick={(e) => e.preventDefault()>Blog</a></li>
           </ul>
         </div>
 
