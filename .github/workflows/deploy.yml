@@ -1,54 +1,62 @@
 name: Build & Deploy React App
 
+# Trigger workflow on push to any branch
 on:
   push:
     branches:
-      - '**'   # kisi bhi branch pe push hoga to run hoga
-  workflow_dispatch:   # manual run button bhi milega
+      - '**'
+  workflow_dispatch:   # optional manual trigger
 
 jobs:
   build:
+    name: Build React App
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build project
+      - name: Build app
         run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
 
   deploy:
+    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/main'   # sirf main branch pe deploy hoga
+    if: github.ref == 'refs/heads/main'   # Only deploy from main branch
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          force_orphan: true
+          force_orphan: true   # ensures overwrite, avoids 403/conflict
