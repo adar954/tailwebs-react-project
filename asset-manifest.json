@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tailwebs-react-project/static/css/main.203a11ec.css",
+    "main.js": "/tailwebs-react-project/static/js/main.1687e11d.js",
+    "static/js/453.58c8da90.chunk.js": "/tailwebs-react-project/static/js/453.58c8da90.chunk.js",
+    "index.html": "/tailwebs-react-project/index.html",
+    "main.203a11ec.css.map": "/tailwebs-react-project/static/css/main.203a11ec.css.map",
+    "main.1687e11d.js.map": "/tailwebs-react-project/static/js/main.1687e11d.js.map",
+    "453.58c8da90.chunk.js.map": "/tailwebs-react-project/static/js/453.58c8da90.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.203a11ec.css",
+    "static/js/main.1687e11d.js"
+  ]
+}
